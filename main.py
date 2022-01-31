@@ -9,9 +9,6 @@ auth = HTTPBasicAuth()
 
 app = Flask(__name__)
 
-
-
-
 @auth.get_password
 def get_password(username):
     if username == 'api_mid':
@@ -37,9 +34,11 @@ def index():
     # final_return = make_response()
     return info
 
+
+
 @app.route('/', methods = ['GET'])
 def index_test(): 
-    response =i.findPerson(1)
+    response =i.getToken()
     print (response)
     return make_response(response,203)
 # if __name__ == '__main__':
