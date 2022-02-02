@@ -1,0 +1,591 @@
+{
+    "swagger": "2.0",
+    "info": {
+    "description": "Object Relational Mapping, Spring Boot",
+    "version": "1.0",
+    "title": "ORM Practice"
+    },
+    "host": "localhost:8082",
+    "basePath": "/",
+    "tags": [
+    {
+    "name": "rest-api-controller",
+    "description": "Rest Api Controller"
+    }
+    ],
+    "paths": {
+    "/api": {
+    "get": {
+    "tags": [
+    "rest-api-controller"
+    ],
+    "summary": "getAllStudent",
+    "operationId": "getAllStudentUsingGET",
+    "produces": [
+    "*/*"
+    ],
+    "responses": {
+    "200": {
+    "description": "OK",
+    "schema": {
+    "type": "array",
+    "items": {
+    "$ref": "#/definitions/Student"
+    }
+    }
+    },
+    "401": {
+    "description": "Unauthorized"
+    },
+    "403": {
+    "description": "Forbidden"
+    },
+    "404": {
+    "description": "Not Found"
+    }
+    },
+    "deprecated": false
+    }
+    },
+    "/api/demo": {
+    "get": {
+    "tags": [
+    "rest-api-controller"
+    ],
+    "summary": "getDemo",
+    "operationId": "getDemoUsingGET",
+    "produces": [
+    "*/*"
+    ],
+    "responses": {
+    "200": {
+    "description": "OK",
+    "schema": {
+    "type": "array",
+    "items": {
+    "$ref": "#/definitions/DemoTest"
+    }
+    }
+    },
+    "401": {
+    "description": "Unauthorized"
+    },
+    "403": {
+    "description": "Forbidden"
+    },
+    "404": {
+    "description": "Not Found"
+    }
+    },
+    "deprecated": false
+    },
+    "post": {
+    "tags": [
+    "rest-api-controller"
+    ],
+    "summary": "createOrUpdateStudent",
+    "operationId": "createOrUpdateStudentUsingPOST",
+    "consumes": [
+    "application/json"
+    ],
+    "produces": [
+    "*/*"
+    ],
+    "parameters": [
+    {
+    "in": "body",
+    "name": "demoTest",
+    "description": "demoTest",
+    "required": true,
+    "schema": {
+    "$ref": "#/definitions/DemoTest"
+    }
+    }
+    ],
+    "responses": {
+    "200": {
+    "description": "OK",
+    "schema": {
+    "$ref": "#/definitions/DemoTest"
+    }
+    },
+    "201": {
+    "description": "Created"
+    },
+    "401": {
+    "description": "Unauthorized"
+    },
+    "403": {
+    "description": "Forbidden"
+    },
+    "404": {
+    "description": "Not Found"
+    }
+    },
+    "deprecated": false
+    }
+    },
+    "/api/getData": {
+    "get": {
+    "tags": [
+    "rest-api-controller"
+    ],
+    "summary": "getAllData",
+    "operationId": "getAllDataUsingGET",
+    "produces": [
+    "*/*"
+    ],
+    "responses": {
+    "200": {
+    "description": "OK",
+    "schema": {
+    "type": "array",
+    "items": {
+    "$ref": "#/definitions/BillInfoSdnJoinDto"
+    }
+    }
+    },
+    "401": {
+    "description": "Unauthorized"
+    },
+    "403": {
+    "description": "Forbidden"
+    },
+    "404": {
+    "description": "Not Found"
+    }
+    },
+    "deprecated": false
+    }
+    },
+    "/api/getDemo": {
+    "get": {
+    "tags": [
+    "rest-api-controller"
+    ],
+    "summary": "getDate",
+    "operationId": "getDateUsingGET",
+    "produces": [
+    "*/*"
+    ],
+    "parameters": [
+    {
+    "name": "id",
+    "in": "query",
+    "description": "id",
+    "required": true,
+    "type": "integer",
+    "format": "int64"
+    }
+    ],
+    "responses": {
+    "200": {
+    "description": "OK",
+    "schema": {
+    "$ref": "#/definitions/DemoTest"
+    }
+    },
+    "401": {
+    "description": "Unauthorized"
+    },
+    "403": {
+    "description": "Forbidden"
+    },
+    "404": {
+    "description": "Not Found"
+    }
+    },
+    "deprecated": false
+    }
+    },
+    "/api/json": {
+    "get": {
+    "tags": [
+    "rest-api-controller"
+    ],
+    "summary": "jsonObject",
+    "operationId": "jsonObjectUsingGET",
+    "produces": [
+    "*/*"
+    ],
+    "responses": {
+    "200": {
+    "description": "OK",
+    "schema": {
+    "type": "object"
+    }
+    },
+    "401": {
+    "description": "Unauthorized"
+    },
+    "403": {
+    "description": "Forbidden"
+    },
+    "404": {
+    "description": "Not Found"
+    }
+    },
+    "deprecated": false
+    }
+    },
+    "/api/post": {
+    "post": {
+    "tags": [
+    "rest-api-controller"
+    ],
+    "summary": "createOrUpdateStudent",
+    "operationId": "createOrUpdateStudentUsingPOST_1",
+    "consumes": [
+    "application/json"
+    ],
+    "produces": [
+    "application/json"
+    ],
+    "parameters": [
+    {
+    "in": "body",
+    "name": "student",
+    "description": "student",
+    "required": true,
+    "schema": {
+    "$ref": "#/definitions/Student"
+    }
+    }
+    ],
+    "responses": {
+    "200": {
+    "description": "OK",
+    "schema": {
+    "$ref": "#/definitions/Student"
+    }
+    },
+    "201": {
+    "description": "Created"
+    },
+    "401": {
+    "description": "Unauthorized"
+    },
+    "403": {
+    "description": "Forbidden"
+    },
+    "404": {
+    "description": "Not Found"
+    }
+    },
+    "deprecated": false
+    }
+    },
+    "/api/projection": {
+    "get": {
+    "tags": [
+    "rest-api-controller"
+    ],
+    "summary": "getAllDatap",
+    "operationId": "getAllDatapUsingGET",
+    "produces": [
+    "*/*"
+    ],
+    "responses": {
+    "200": {
+    "description": "OK",
+    "schema": {
+    "type": "array",
+    "items": {
+    "$ref": "#/definitions/JpaProjection"
+    }
+    }
+    },
+    "401": {
+    "description": "Unauthorized"
+    },
+    "403": {
+    "description": "Forbidden"
+    },
+    "404": {
+    "description": "Not Found"
+    }
+    },
+    "deprecated": false
+    }
+    },
+    "/api/{id}": {
+    "get": {
+    "tags": [
+    "rest-api-controller"
+    ],
+    "summary": "getStudentByID",
+    "operationId": "getStudentByIDUsingGET",
+    "produces": [
+    "*/*"
+    ],
+    "parameters": [
+    {
+    "name": "id",
+    "in": "path",
+    "description": "id",
+    "required": true,
+    "type": "integer",
+    "format": "int32"
+    }
+    ],
+    "responses": {
+    "200": {
+    "description": "OK",
+    "schema": {
+    "$ref": "#/definitions/Optional«Student»"
+    }
+    },
+    "401": {
+    "description": "Unauthorized"
+    },
+    "403": {
+    "description": "Forbidden"
+    },
+    "404": {
+    "description": "Not Found"
+    }
+    },
+    "deprecated": false
+    },
+    "delete": {
+    "tags": [
+    "rest-api-controller"
+    ],
+    "summary": "deleteEntity",
+    "operationId": "deleteEntityUsingDELETE",
+    "produces": [
+    "*/*"
+    ],
+    "parameters": [
+    {
+    "name": "id",
+    "in": "path",
+    "description": "id",
+    "required": true,
+    "type": "integer",
+    "format": "int32"
+    }
+    ],
+    "responses": {
+    "200": {
+    "description": "OK",
+    "schema": {
+    "type": "string"
+    }
+    },
+    "204": {
+    "description": "No Content"
+    },
+    "401": {
+    "description": "Unauthorized"
+    },
+    "403": {
+    "description": "Forbidden"
+    }
+    },
+    "deprecated": false
+    }
+    }
+    },
+    "definitions": {
+    "BillInfoSdnJoinDto": {
+    "type": "object",
+    "properties": {
+    "bank_txn_id": {
+    "type": "string"
+    },
+    "bill_no": {
+    "type": "string"
+    },
+    "collection_date": {
+    "type": "string",
+    "format": "date-time"
+    },
+    "disco_txn_id": {
+    "type": "string"
+    },
+    "display_order": {
+    "type": "integer",
+    "format": "int32"
+    },
+    "lpc_amount": {
+    "type": "number",
+    "format": "double"
+    },
+    "net_principalAmount": {
+    "type": "number",
+    "format": "double"
+    },
+    "principal_Amount": {
+    "type": "number",
+    "format": "double"
+    },
+    "rev_stampAmount": {
+    "type": "number",
+    "format": "double"
+    },
+    "snd_id": {
+    "type": "integer",
+    "format": "int32"
+    },
+    "sndname": {
+    "type": "string"
+    },
+    "total_billAmount": {
+    "type": "number",
+    "format": "double"
+    },
+    "vat_amount": {
+    "type": "number",
+    "format": "double"
+    }
+    },
+    "title": "BillInfoSdnJoinDto"
+    },
+    "Course": {
+    "type": "object",
+    "properties": {
+    "course_title": {
+    "type": "string"
+    },
+    "id": {
+    "type": "integer",
+    "format": "int32"
+    },
+    "semester": {
+    "$ref": "#/definitions/Semester"
+    }
+    },
+    "title": "Course"
+    },
+    "DemoTest": {
+    "type": "object",
+    "properties": {
+    "address": {
+    "type": "string"
+    },
+    "company": {
+    "type": "string"
+    },
+    "id": {
+    "type": "integer",
+    "format": "int64"
+    },
+    "name": {
+    "type": "string"
+    }
+    },
+    "title": "DemoTest"
+    },
+    "JpaProjection": {
+    "type": "object",
+    "properties": {
+    "bank_txn_id": {
+    "type": "string"
+    },
+    "bill_no": {
+    "type": "string"
+    },
+    "client_txn_id": {
+    "type": "string"
+    },
+    "collection_date": {
+    "type": "string",
+    "format": "date-time"
+    },
+    "display_order": {
+    "type": "integer",
+    "format": "int32"
+    },
+    "lpc_amount": {
+    "type": "number",
+    "format": "double"
+    },
+    "net_principalAmount": {
+    "type": "number",
+    "format": "double"
+    },
+    "principal_Amount": {
+    "type": "number",
+    "format": "double"
+    },
+    "rev_stampAmount": {
+    "type": "number",
+    "format": "double"
+    },
+    "snd_id": {
+    "type": "integer",
+    "format": "int32"
+    },
+    "sndname": {
+    "type": "string"
+    },
+    "total_billAmount": {
+    "type": "number",
+    "format": "double"
+    },
+    "vat_amount": {
+    "type": "number",
+    "format": "double"
+    }
+    },
+    "title": "JpaProjection"
+    },
+    "Optional«Student»": {
+    "type": "object",
+    "properties": {
+    "present": {
+    "type": "boolean"
+    }
+    },
+    "title": "Optional«Student»"
+    },
+    "Semester": {
+    "type": "object",
+    "properties": {
+    "courses": {
+    "type": "array",
+    "items": {
+    "$ref": "#/definitions/Course"
+    }
+    },
+    "id": {
+    "type": "integer",
+    "format": "int32"
+    },
+    "semester_no": {
+    "type": "string"
+    },
+    "student": {
+    "type": "array",
+    "items": {
+    "$ref": "#/definitions/Student"
+    }
+    }
+    },
+    "title": "Semester"
+    },
+    "Student": {
+    "type": "object",
+    "properties": {
+    "email": {
+    "type": "string"
+    },
+    "fname": {
+    "type": "string"
+    },
+    "id": {
+    "type": "integer",
+    "format": "int32"
+    },
+    "lname": {
+    "type": "string"
+    },
+    "semesteer": {
+    "$ref": "#/definitions/Semester"
+    }
+    },
+    "title": "Student"
+    }
+    }
+    }

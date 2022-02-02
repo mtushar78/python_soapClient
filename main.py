@@ -2,12 +2,24 @@
 from flask import Flask, jsonify, request, make_response
 from flask_httpauth import HTTPBasicAuth
 import gevent.pywsgi
+from flask_swagger_ui import get_swaggerui_blueprint
 import zeep
 import index as i
 
 auth = HTTPBasicAuth()
 
 app = Flask(__name__)
+# flask swagger configs
+SWAGGER_URL = '/swagger'
+API_URL = '/static/swagger.json'
+SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
+    SWAGGER_URL,
+    API_URL,
+    config={
+        'app_name': "Todo List API"
+    }
+)
+app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 
 @auth.get_password
 def get_password(username):
@@ -24,21 +36,17 @@ def unauthorized():
 @auth.login_required
 def index():
     x = request.get_json()
-    print("requested Value: ",x["a"])
-    wsdl2 = 'https://www.crcind.com/csp/samples/SOAP.Demo.cls?wsdl'
-    client2 = zeep.Client(wsdl2)
-    info = client2.service.FindPerson(1)
+    response =i.findPerson(x["value"])
+    print (response)
+    return make_response(response,200)
 
-
-    # print("returned_val: ", returned_val)
-    # final_return = make_response()
-    return info
 
 
 
 @app.route('/', methods = ['GET'])
+
 def index_test(): 
-    response =i.getToken()
+    response =i.findPerson(1)
     print (response)
     return make_response(response,203)
 # if __name__ == '__main__':
